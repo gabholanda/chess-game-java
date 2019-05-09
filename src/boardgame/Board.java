@@ -31,6 +31,12 @@ public class Board {
     public void setColumns(int columns) {
         this.columns = columns;
     }
-    
-    
+    //método que recebe uma linha e coluna e retorna ela no tabuleiro
+    public Piece piece(int row,int column){
+        return pieces[row][column];
+    }
+    //método que recebe uma posição e retorna ela no tabuleiro - movimentação
+    public Piece piece(Position position){
+        return pieces[position.getRow()][position.getColumn()];
+    }
 }
