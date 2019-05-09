@@ -9,6 +9,7 @@ package boardgame;
  *
  * @author HOLANDAS
  */
+// Classe que define a posição no tabuleiro
 public class Position {
     private int row;
     private int column;
@@ -32,7 +33,7 @@ public class Position {
     public void setColumn(int column) {
         this.column = column;
     }
-    
+    // retorna a posição no tabuleiro
     @Override
     public String toString(){
         return row +","+column;
