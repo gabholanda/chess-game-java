@@ -11,7 +11,7 @@ public class Board {
     private Piece[][] pieces;
 
     public Board(int rows, int columns) {
-        if (rows < 1 && columns < 1) {
+        if (rows < 1 || columns < 1) {
             throw new BoardException("Erro ao criar tabuleiro: É necessário no mínimo 1 linha e coluna");
         }
         this.rows = rows;
