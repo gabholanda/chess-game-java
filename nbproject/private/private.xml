@@ -3,13 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/gabri/OneDrive/Documentos/NetBeansProjects/chess-game/src/chess/ChessPosition.java</file>
             <file>file:/C:/Users/gabri/OneDrive/Documentos/NetBeansProjects/chess-game/src/Application/Program.java</file>
+            <file>file:/C:/Users/gabri/OneDrive/Documentos/NetBeansProjects/chess-game/src/boardgame/BoardException.java</file>
             <file>file:/C:/Users/gabri/OneDrive/Documentos/NetBeansProjects/chess-game/src/chess/Color.java</file>
-            <file>file:/C:/Users/gabri/OneDrive/Documentos/NetBeansProjects/chess-game/src/chess/ChessMatch.java</file>
+            <file>file:/C:/Users/gabri/OneDrive/Documentos/NetBeansProjects/chess-game/src/chess/ChessException.java</file>
+            <file>file:/C:/Users/gabri/OneDrive/Documentos/NetBeansProjects/chess-game/src/chess/pieces/King.java</file>
             <file>file:/C:/Users/gabri/OneDrive/Documentos/NetBeansProjects/chess-game/src/boardgame/Piece.java</file>
             <file>file:/C:/Users/gabri/OneDrive/Documentos/NetBeansProjects/chess-game/src/boardgame/Position.java</file>
             <file>file:/C:/Users/gabri/OneDrive/Documentos/NetBeansProjects/chess-game/src/boardgame/Board.java</file>
             <file>file:/C:/Users/gabri/OneDrive/Documentos/NetBeansProjects/chess-game/src/chess/ChessPiece.java</file>
+            <file>file:/C:/Users/gabri/OneDrive/Documentos/NetBeansProjects/chess-game/src/chess/pieces/Rook.java</file>
             <file>file:/C:/Users/gabri/OneDrive/Documentos/NetBeansProjects/chess-game/src/Application/UI.java</file>
         </group>
     </open-files>
