@@ -60,9 +60,10 @@ public class UI {
         }
         System.out.println("  a b c d e f g h");
     }
+
 //Método que imprime o tabuleiro com as possiveis possiveis de movimentação
     public static void printBoard(ChessPiece[][] pieces, boolean[][] possibleMoves) {
-     for (int i = 0; i < pieces.length; i++) {
+        for (int i = 0; i < pieces.length; i++) {
             System.out.print((8 - i) + " ");
             for (int j = 0; j < pieces.length; j++) {
                 printPiece(pieces[i][j], possibleMoves[i][j]);
@@ -71,8 +72,8 @@ public class UI {
         }
         System.out.println("  a b c d e f g h");
     }
-//Método auxilar para imprimir uma única peça
 
+//Método auxilar para imprimir uma única peça
     private static void printPiece(ChessPiece piece, boolean background) {
         if (background) {
             System.out.println(ANSI_BLUE_BACKGROUND);
