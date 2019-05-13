@@ -4,6 +4,8 @@ import boardgame.Board;
 import boardgame.Piece;
 import boardgame.Position;
 import chess.pieces.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -14,6 +16,9 @@ public class ChessMatch {
     private Board board;
     private int turn;
     private Color currentPlayer;
+
+    private List<Piece> piecesOnTheBoard = new ArrayList<>();
+    private List<Piece> capturedPieces = new ArrayList<>();
 
     public ChessMatch() {
         board = new Board(8, 8);
@@ -64,6 +69,10 @@ public class ChessMatch {
         Piece capturedPiece = board.removePiece(target);
         //coloca p na posição de destino
         board.placePiece(p, target);
+        if (capturedPiece != null){
+            piecesOnTheBoard.remove(capturedPiece);
+            capturedPieces.add(capturedPiece);
+        }
         return capturedPiece;
     }
 
@@ -71,8 +80,8 @@ public class ChessMatch {
         if (!board.thereIsAPiece(p)) {
             throw new ChessException("There is no piece on the source position");
         }
-        if(currentPlayer != ((ChessPiece)board.piece(p)).getColor()){
-            throw new ChessException ("You can't move an Opponents piece");
+        if (currentPlayer != ((ChessPiece) board.piece(p)).getColor()) {
+            throw new ChessException("You can't move an Opponents piece");
         }
         if (!board.piece(p).isThereAnyPossibleMove()) {
             throw new ChessException("There is no possible moves for the chosen piece");
@@ -84,14 +93,17 @@ public class ChessMatch {
             throw new ChessException("Tje chosen piece cannot move to target position");
         }
     }
-    private void nextTurn(){
+
+    private void nextTurn() {
         turn++;
         currentPlayer = (currentPlayer == Color.WHITE) ? Color.BLACK : Color.WHITE;
     }
+
     //coloca uma peça nova no xadrez
     private void placeNewPiece(char column, int row, ChessPiece piece) {
         //converte para sistema de Matriz toPosition()
         board.placePiece(piece, new ChessPosition(column, row).toPosition());
+        piecesOnTheBoard.add(piece);
     }
 
     //Inicia o jogo
