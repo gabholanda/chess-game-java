@@ -76,7 +76,7 @@ public class ChessMatch {
             throw new ChessException("You can't put yourself in check!");
         }
         check = (testCheck(opponent(currentPlayer))) ? true : false;
-        if(testCheckMate(opponent(currentPlayer))){
+        if (testCheckMate(opponent(currentPlayer))) {
             checkMate = true;
         }
         nextTurn();
@@ -84,7 +84,8 @@ public class ChessMatch {
     }
 
     private Piece makeMove(Position source, Position target) {
-        Piece p = board.removePiece(source);
+        ChessPiece p = (ChessPiece) board.removePiece(source);
+        p.increaseMoveCount();
         // remove uma possível peça de posição de destino
         Piece capturedPiece = board.removePiece(target);
         //coloca p na posição de destino
@@ -97,7 +98,8 @@ public class ChessMatch {
     }
 
     private Piece undoMove(Position source, Position target, Piece capturedPiece) {
-        Piece p = board.removePiece(target);
+       ChessPiece p = (ChessPiece)board.removePiece(target);
+       p.decreaseMoveCount();
         board.placePiece(p, source);
         if (capturedPiece != null) {
             board.placePiece(capturedPiece, target);
@@ -172,15 +174,15 @@ public class ChessMatch {
             boolean[][] mat = p.possibleMoves();
             for (int i = 0; i < board.getRows(); i++) {
                 for (int j = 0; j < board.getColumns(); j++) {
-                    if(mat[i][j]){
-                       Position source = ((ChessPiece)p).getChessPosition().toPosition();
-                       Position target = new Position(i,j);
-                       Piece capturedPiece = makeMove(source, target);
-                       boolean testCheck = testCheck(color);
-                       undoMove(source, target, capturedPiece);
-                       if(!testCheck){
-                           return false;
-                       }
+                    if (mat[i][j]) {
+                        Position source = ((ChessPiece) p).getChessPosition().toPosition();
+                        Position target = new Position(i, j);
+                        Piece capturedPiece = makeMove(source, target);
+                        boolean testCheck = testCheck(color);
+                        undoMove(source, target, capturedPiece);
+                        if (!testCheck) {
+                            return false;
+                        }
                     }
                 }
             }
